@@ -1,0 +1,5 @@
+# Django
+django>=5.0.1,<6.0.0
+
+# DRF (django rest framework)
+djangorestframework>=3.14,<4.0.0
