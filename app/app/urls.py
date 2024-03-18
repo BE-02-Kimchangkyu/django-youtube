@@ -20,3 +20,11 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+# docker-compose run --rm app sh -c 'python manage.py showmigrations'
+# docker-compose run --rm app sh -c 'python manage.py makemigrations'
+# docker-compose run --rm app sh -c 'python manage.py migrate'
+# docker-compose run --rm app sh -c 'python manage.py test users'
+# git add .
+# git commit -m 'create models & custom user testcode'
+# git push -u origin main
