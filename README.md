@@ -15,4 +15,7 @@
 - requirements.dev.txt  -> 개발하고 연습할 때 사용(파이썬 패키지 관리)
 - 실전: 패키지 의존성 관리 -> 버전관리, 패키지들 간의 관계 관리
 
-### 4.
+### 4. DRF세팅
+ - DJangoRestframework
+ - drf-spectacular / swagguer-ui, redoc / requirements.txt 추가
+ - docer-compose build
