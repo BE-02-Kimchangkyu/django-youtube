@@ -19,3 +19,12 @@
  - DJangoRestframework
  - drf-spectacular / swagguer-ui, redoc / requirements.txt 추가
  - docer-compose build
+
+
+# docker-compose run --rm app sh -c 'python manage.py showmigrations'
+# docker-compose run --rm app sh -c 'python manage.py makemigrations'
+# docker-compose run --rm app sh -c 'python manage.py migrate'
+# docker-compose run --rm app sh -c 'python manage.py test users'
+# git add .
+# git commit -m ''
+# git push -u origin main
