@@ -21,10 +21,18 @@
  - docer-compose build
 
 
+# docker-compose up
+# docker-compose build
 # docker-compose run --rm app sh -c 'python manage.py showmigrations'
 # docker-compose run --rm app sh -c 'python manage.py makemigrations'
 # docker-compose run --rm app sh -c 'python manage.py migrate'
+
+# docker-compose run --rm app sh -c 'python manage.py comments'
+# docker-compose run --rm app sh -c 'python manage.py createsuperuser'
 # docker-compose run --rm app sh -c 'python manage.py test users'
 # git add .
 # git commit -m ''
 # git push -u origin main
+
+# makemigrations (장고한테 알려주는 것)
+# migrate (장고가 DB를 찾아가는것)
