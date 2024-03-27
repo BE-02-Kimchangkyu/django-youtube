@@ -39,5 +39,7 @@
 # git commit -m ''
 # git push -u origin main
 
+# ssh ec2-user@3.35.9.218
+
 # makemigrations (장고한테 알려주는 것)
 # migrate (장고가 DB를 찾아가는것)
