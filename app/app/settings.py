@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zg^3q*)z1f59(c!_p4y1kknwi_%y70brgwwyp%1+6uio&qn@v7'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'password123')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.environ.get('DEBUG', 0))) # 0 = False, 1 = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,15 +42,26 @@ DJANGO_SYSTEM_APPS = [
 ]
 
 CUSTOM_USER_APPS = [
+    'daphne',
     'users.apps.UsersConfig', # Config: label 변경할 일이 많다.
     'videos.apps.VideosConfig',
     'comments.apps.CommentsConfig',
     'subscriptions.apps.SubscriptionsConfig',
+    'reactions.apps.ReactionsConfig',
+    'channels',
+    'chat.apps.ChatConfig',
     'rest_framework',
     'drf_spectacular'
 ]
 
 INSTALLED_APPS = CUSTOM_USER_APPS + DJANGO_SYSTEM_APPS
+
+# Channels를 사용하기 위한 설정
+ASGI_APPLICATION = 'app.route.application' # Socket (비동기처리) + HTTP(동기) // FAST API(비동기) + (동기)
+
+WSGI_APPLICATION = 'app.wsgi.application' # HTTP Base - REST API (동기처리)
+
+# 동기와 비동기 : 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,7 +91,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'app.wsgi.application'
 
 
 # Database
@@ -144,3 +155,10 @@ AUTH_USER_MODEL = 'users.User'
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
 }
+
+CHANNEL_LAYERS = {
+    'default':{
+        'BACKEND' : 'channels.layers.InMemoryChannelLayer'
+    }
+}
+

@@ -20,6 +20,10 @@
  - drf-spectacular / swagguer-ui, redoc / requirements.txt 추가
  - docer-compose build
 
+ Streaming - 영상 파일은 어떻게 보낼까? TCP/UDP, 3ways handshake.
+ Socket - ws://, Hand Shake 양방향 통신가능해진다, Low Overhead, Frame(웹소켓에서 데이터를 나누는 단위) 
+ HTTP의 차이 공부.
+
 
 # docker-compose up
 # docker-compose build
@@ -30,6 +34,7 @@
 # docker-compose run --rm app sh -c 'python manage.py comments'
 # docker-compose run --rm app sh -c 'python manage.py createsuperuser'
 # docker-compose run --rm app sh -c 'python manage.py test users'
+# docker-compose run --rm app sh -c 'flake8'
 # git add .
 # git commit -m ''
 # git push -u origin main
